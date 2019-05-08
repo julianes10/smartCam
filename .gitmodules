@@ -1,0 +1,3 @@
+[submodule "SCS"]
+	path = SCS
+	url = https://github.com/julianes10/SCS.git
