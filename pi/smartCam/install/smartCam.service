@@ -1,0 +1,15 @@
+[Unit]
+Description=SmartCAM service
+After=multi-user.target
+
+[Service]
+Type=simple
+ExecStart=/opt/PROJECT_NAME/smartCam/smartCam.py --configfile /etc/smartCam.conf
+WorkingDirectory=/opt/PROJECT_NAME/smartCam/
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+
+
+

@@ -1,0 +1,21 @@
+<!-- index.html -->
+
+{% block content %}
+<div class="container">
+<h1>SmartCAM Web Interface</h1>
+
+
+<img src="./mjpgstreamer/?action=stream " />
+<br>
+<iframe src="./timelapse/"><iframe>
+
+<h2>Disk Info</h2> 
+<table>
+   <tr><th></th><th>Value</th><th>Units</th></tr>
+   <tr><td>Ongoing</td><td align="right">{{ (status.disk.ongoing/1024/1024)|round(1)}}</td><td>MB</td></tr>
+   <tr><td>Projects</td><td align="right">{{ (status.disk.projects/1024/1024)|round(1)}}</td><td>MB</td></tr>
+   <tr><td>Total Free</td><td align="right">{{ (status.disk.totalFree/1024/1024)|round(1)}}</td><td>MB</td></tr>
+</table>
+</div>
+
+{% endblock %}
