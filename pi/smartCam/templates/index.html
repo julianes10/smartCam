@@ -1,21 +1,46 @@
-<!-- index.html -->
-
-{% block content %}
+<!doctype html>
+<html>
+    <head>
+      <title>SmartCAM Web Interface</title>
+      <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+      <script src="{{url_for('static', filename='tabsmgt.js')}}"></script>
+    </head>
+<body>
 <div class="container">
-<h1>SmartCAM Web Interface</h1>
+  <h1>SmartCAM Web Interface</h1>
+
+  <!-- Tab links -->
+  <div class="tab">
+    <button class="tablinks" onclick="openTab(event, 'stream')">Live</button>
+    <button class="tablinks" onclick="openTab(event, 'timelapse')">Timelapse</button>
+    <button class="tablinks" onclick="openTab(event, 'disk')">Disk</button>
+  </div>
+
+  <!-- Tab content -->
+  <div id="stream" class="tabcontent">
+    <img src="./mjpgstreamer/?action=stream"/>
+  </div>
+
+  <div id="timelapse" class="tabcontent">
+    <div class="my_iframe">
+      <iframe src="./timelapse/" frameborder="0" scrolling="no" onload="resizeIframe(this)">
+          halo
+      </iframe>
+    </div>
+  </div>
+
+  <div id="disk" class="tabcontent">
+    <h2>Disk Info</h2> 
+    <table>
+     <tr><th></th><th>Value</th><th>Units</th></tr>
+     <tr><td>Ongoing</td><td align="right">{{ (status.disk.ongoing/1024/1024)|round(1)}}</td><td>MB</td></tr>
+     <tr><td>Projects</td><td align="right">{{ (status.disk.projects/1024/1024)|round(1)}}</td><td>MB</td></tr>
+     <tr><td>Total Free</td><td align="right">{{ (status.disk.totalFree/1024/1024)|round(1)}}</td><td>MB</td></tr>
+    </table>
+  </div>
 
 
-<img src="./mjpgstreamer/?action=stream " />
-<br>
-<iframe src="./timelapse/"><iframe>
-
-<h2>Disk Info</h2> 
-<table>
-   <tr><th></th><th>Value</th><th>Units</th></tr>
-   <tr><td>Ongoing</td><td align="right">{{ (status.disk.ongoing/1024/1024)|round(1)}}</td><td>MB</td></tr>
-   <tr><td>Projects</td><td align="right">{{ (status.disk.projects/1024/1024)|round(1)}}</td><td>MB</td></tr>
-   <tr><td>Total Free</td><td align="right">{{ (status.disk.totalFree/1024/1024)|round(1)}}</td><td>MB</td></tr>
-</table>
 </div>
+</body>
+</html>
 
-{% endblock %}
