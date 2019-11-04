@@ -114,11 +114,8 @@ def home():
     timelapse["port"]=GLB_configuration["timelapseServicePort"]
     timelapse["ip"]  =GLB_configuration["timelapseServiceIP"]
 
-    streamer={}
-    streamer["port"]=GLB_configuration["mjpg-streamerServicePort"]
-    streamer["ip"]  =GLB_configuration["mjpg-streamerServiceIP"]
     st=getStatus()
-    rt=render_template('index.html', title="smartCam Site",status=st,streamer=streamer,timelapse=timelapse)
+    rt=render_template('index.html', title="smartCam Site",status=st,timelapse=timelapse)
     return rt
 
 
