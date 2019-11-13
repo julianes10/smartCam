@@ -13,6 +13,7 @@
   <div class="tab">
     <button class="tablinks" onclick="openTab(event, 'picam')">Picam</button>
     <button class="tablinks" onclick="openTab(event, 'timelapse')">Timelapse</button>
+    <button class="tablinks" onclick="openTab(event, 'telegram')">Telegram</button>
     <button class="tablinks" onclick="openTab(event, 'disk')">Disk</button>
   </div>
 
@@ -27,6 +28,13 @@
   <div id="timelapse" class="tabcontent">
     <div class="my_iframe">
       <iframe src="./timelapse/" frameborder="0" scrolling="no" onload="resizeIframe(this)">
+      </iframe>
+    </div>
+  </div>
+
+  <div id="telegram" class="tabcontent">
+    <div class="my_iframe">
+      <iframe src="./telegram/" frameborder="0" scrolling="no" onload="resizeIframe(this)">
       </iframe>
     </div>
   </div>
