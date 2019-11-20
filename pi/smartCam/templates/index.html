@@ -15,6 +15,7 @@
     <button class="tablinks" onclick="openTab(event, 'timelapse')">Timelapse</button>
     <button class="tablinks" onclick="openTab(event, 'telegram')">Telegram</button>
     <button class="tablinks" onclick="openTab(event, 'disk')">Disk</button>
+    <button class="tablinks" onclick="openTab(event, 'system')">System Status</button>
   </div>
 
   <!-- Tab content -->
@@ -47,6 +48,13 @@
      <tr><td>Projects</td><td align="right">{{ (status.disk.projects/1024/1024)|round(1)}}</td><td>MB</td></tr>
      <tr><td>Total Free</td><td align="right">{{ (status.disk.totalFree/1024/1024)|round(1)}}</td><td>MB</td></tr>
     </table>
+  </div>
+
+  <div id="system" class="tabcontent">
+    <div class="my_iframe">
+      <iframe src="./systemStatus/" frameborder="0" scrolling="no" onload="resizeIframe(this)">
+      </iframe>
+    </div>
   </div>
 
 
