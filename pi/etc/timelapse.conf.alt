@@ -1,0 +1,14 @@
+{
+  "log": { "logTraces":"/tmp/timelapse.log",
+           "logExceptions":"/tmp/timelapsee.log"
+  },
+  "port":5060,
+  "host":"0.0.0.0",
+  "polling-interval":2,
+  "projectDB":"/tmp/timelapse.db",
+  "ongoingDB":"/tmp/timelapse.ongoing",
+  "ongoingDBHack":"/tmp/timelapse.hack",
+  "mediaPath":"/tmp/timelapse.media",
+  "takePhotoCmd":"/opt/smartCam/picam/takePhotoMix.sh localhost 9999 PARAMETER_OUTFILE 180",
+  "createVideoCmd":"mencoder mf://PARAMETER_INPUTFOLDER/* -mf fps=25:type=jpg -ovc lavc -lavcopts vcodec=msmpeg4v2:vbitrate=16000:keyint=15:mbd=2:trell -oac copy -o PARAMETER_OUTFILE"
+}
